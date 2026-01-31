@@ -139,6 +139,16 @@
                 });
             });
 		});
+
+		window.addEventListener('scroll', function() {
+			const gradient = document.querySelector('.bottom-gradient');
+			if (!gradient) return;
+			if (window.scrollY > 10) {
+				gradient.classList.add('hide');
+			} else {
+				gradient.classList.remove('hide');
+			}
+		});
 	</script>
 </head>
 <body>
@@ -157,27 +167,83 @@
     <div class="center-row" style="top: 40%;">
         <span class="yellow-text" style="font-size: 1.5rem;">this is my webpage about my stuff</span>
     </div>
-    <div class="center-row" style="top: 40%;">
-        <span class="yellow-text" style="font-size: 1.5rem;">this is my webpage about my stuff</span>
+    <div class="center-row" style="top: 55%; left: 25%;">
+        <div class="petricor-box">
+            <div class="petricor-header">
+                <img src="balIcon.png" class="petricor-logo"/>
+                <span class="yellow-text" style="font-size: 2rem;">
+                    <a href="https://github.com/yellowkirby113/Risk-of-jokes-Balatro-mod" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">Petricor V</a>
+                </span>
+            </div>
+            <div class="petricor-desc">
+                A balatro mod that incorporates Risk of rain 2
+            </div>
+        </div>
     </div>
+        <div class="center-row" style="top: 55%; left: 75%;">
+        <div class="petricor-box">
+            <div class="petricor-header">
+                <img src="balIcon.png" class="petricor-logo"/>
+                <span class="yellow-text" style="font-size: 2rem;">
+                    <a href="https://github.com/yellowkirby113/Risk-of-jokes-Balatro-mod" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">Petricor V</a>
+                </span>
+            </div>
+            <div class="petricor-desc">
+                A
+            </div>
+        </div>
+    </div>
+        <div class="center-row" style="top: 55%; left: 25%;">
+        <div class="petricor-box">
+            <div class="petricor-header">
+                <img src="balIcon.png" class="petricor-logo"/>
+                <span class="yellow-text" style="font-size: 2rem;">
+                    <a href="https://github.com/yellowkirby113/Risk-of-jokes-Balatro-mod" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">Petricor V</a>
+                </span>
+            </div>
+            <div class="petricor-desc">
+                A balatro mod that incorporates Risk of rain 2
+            </div>
+        </div>
+    </div>
+    <div class="center-row" style="top: 80%; left: 75%;">
+        <div class="petricor-box">
+            <div class="petricor-header">
+                <img src="balIcon.png" class="petricor-logo"/>
+                <span class="yellow-text" style="font-size: 2rem;">
+                    <a href="https://github.com/yellowkirby113/Risk-of-jokes-Balatro-mod" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">Petricor V</a>
+                </span>
+            </div>
+            <div class="petricor-desc">
+                A
+            </div>
+        </div>
+    </div>
+    <div class="center-row" style="top: 80%; left: 25%;">
+        <div class="petricor-box">
+            <div class="petricor-header">
+                <img src="balIcon.png" class="petricor-logo"/>
+                <span class="yellow-text" style="font-size: 2rem;">
+                    <a href="https://github.com/yellowkirby113/Risk-of-jokes-Balatro-mod" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">Petricor V</a>
+                </span>
+            </div>
+            <div class="petricor-desc">
+                A
+            </div>
+        </div>
+    </div>
+	<div class="center-text" style="top: 150%;">
+        doop
+    </div>
+    <div>
     <div class="center-row" style="left: 15%; top: 15%;">
         <div class="resizable">
             <img src="car.gif" id="car-gif-1"/>
             <div class="resizer"></div>
         </div>
     </div>
-    <div class="center-row" style="top: 55%; left: 25%;">
-        <img src="balIcon.png"/>
-        <span class="yellow-text" style="font-size: 1.5rem;">Petricor V</span>
-    </div>
-    <div class="center-row" style="top: 70%; left: 25%;">
-        <span class="yellow-text" style="font-size: 1.5rem; top: 50%;left: 25%;">A balatro mod that incorporates Risk of rain 2</span>      
-    </div>
-    <div class="center-row" style="top: 100%;">
-        <div class="resizable">
-            <img src="car.gif" id="car-gif-2"/>
-            <div class="resizer"></div>
-        </div>
+    <div class="bottom-gradient">
+        <div class="down-arrow">&#8595;</div>
     </div>
 </body>
 </html>
