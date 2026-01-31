@@ -100,6 +100,8 @@
             document.querySelectorAll('.resizable').forEach(resizable => {
                 const resizer = resizable.querySelector('.resizer');
                 let isResizing = false, startX, startY, startWidth, startHeight;
+
+                // Store original size
                 const originalWidth = resizable.offsetWidth;
                 const originalHeight = resizable.offsetHeight;
 
@@ -125,16 +127,54 @@
                     if (isResizing) {
                         isResizing = false;
                         document.body.style.userSelect = '';
+                        // Snap back to original size
                         resizable.style.transition = 'width 0.2s, height 0.2s';
                         resizable.style.width = originalWidth + 'px';
                         resizable.style.height = originalHeight + 'px';
-                        resizable.classList.remove('wobbling'); 
-                        void resizable.offsetWidth; 
-                        resizable.classList.add('wobbling');
+                        // Trigger wobble after transition
                         setTimeout(() => {
                             resizable.style.transition = '';
                             resizable.classList.remove('wobbling');
-                        }, 600);
+                            void resizable.offsetWidth; // force reflow
+                            resizable.classList.add('wobbling');
+                            setTimeout(() => {
+                                resizable.classList.remove('wobbling');
+                            }, 600);
+                        }, 200);
+                    }
+                });
+            });
+
+            // Make car.gif draggable
+            document.querySelectorAll('.draggable-car').forEach(car => {
+                let isDragging = false, offsetX = 0, offsetY = 0, parentRect = null;
+
+                car.addEventListener('mousedown', function(e) {
+                    if (e.target.classList.contains('resizer')) return;
+                    isDragging = true;
+                    car.classList.add('dragging');
+                    // Get parent position
+                    parentRect = car.parentElement.getBoundingClientRect();
+                    const rect = car.getBoundingClientRect();
+                    offsetX = e.clientX - rect.left;
+                    offsetY = e.clientY - rect.top;
+                    car.style.zIndex = 1000;
+                });
+
+                document.addEventListener('mousemove', function(e) {
+                    if (!isDragging) return;
+                    // Calculate position relative to parent
+                    const x = e.clientX - parentRect.left - offsetX;
+                    const y = e.clientY - parentRect.top - offsetY;
+                    car.style.left = x + 'px';
+                    car.style.top = y + 'px';
+                });
+
+                document.addEventListener('mouseup', function() {
+                    if (isDragging) {
+                        isDragging = false;
+                        car.classList.remove('dragging');
+                        car.style.zIndex = 10;
                     }
                 });
             });
@@ -167,38 +207,26 @@
     <div class="center-row" style="top: 40%;">
         <span class="yellow-text" style="font-size: 1.5rem;">this is my webpage about my stuff</span>
     </div>
-    <div class="center-row" style="top: 55%; left: 25%;">
-        <div class="petricor-box">
-            <div class="petricor-header">
-                <img src="balIcon.png" class="petricor-logo"/>
-                <span class="yellow-text" style="font-size: 2rem;">
-                    <a href="https://github.com/yellowkirby113/Risk-of-jokes-Balatro-mod" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">Petricor V</a>
-                </span>
-            </div>
-            <div class="petricor-desc">
-                A balatro mod that incorporates Risk of rain 2
-            </div>
-        </div>
-    </div>
         <div class="center-row" style="top: 55%; left: 75%;">
         <div class="petricor-box">
             <div class="petricor-header">
-                <img src="balIcon.png" class="petricor-logo"/>
+                <img src="icon.png" class="logo"/>
                 <span class="yellow-text" style="font-size: 2rem;">
-                    <a href="https://github.com/yellowkirby113/Risk-of-jokes-Balatro-mod" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">Petricor V</a>
+                    <a href="https://yellowkirby113.github.io/" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">???????</a>
                 </span>
             </div>
             <div class="petricor-desc">
-                A
+                ???????
             </div>
         </div>
     </div>
         <div class="center-row" style="top: 55%; left: 25%;">
         <div class="petricor-box">
             <div class="petricor-header">
-                <img src="balIcon.png" class="petricor-logo"/>
+                <img src="balIcon.png" class="logo"/>
                 <span class="yellow-text" style="font-size: 2rem;">
-                    <a href="https://github.com/yellowkirby113/Risk-of-jokes-Balatro-mod" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">Petricor V</a>
+                    <!--<a href="https://github.com/yellowkirby113/Risk-of-jokes-Balatro-mod" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">Petricor V</a>-->
+                    <a href="PV/index.html" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">Petricor V</a>
                 </span>
             </div>
             <div class="petricor-desc">
@@ -209,34 +237,37 @@
     <div class="center-row" style="top: 80%; left: 75%;">
         <div class="petricor-box">
             <div class="petricor-header">
-                <img src="balIcon.png" class="petricor-logo"/>
+                <img src="icon.png" class="logo"/>
                 <span class="yellow-text" style="font-size: 2rem;">
-                    <a href="https://github.com/yellowkirby113/Risk-of-jokes-Balatro-mod" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">Petricor V</a>
+                    // <a href="https://yellowkirby113.github.io/PV/" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">???????</a>
                 </span>
             </div>
             <div class="petricor-desc">
-                A
+                ???????
             </div>
         </div>
     </div>
     <div class="center-row" style="top: 80%; left: 25%;">
         <div class="petricor-box">
             <div class="petricor-header">
-                <img src="balIcon.png" class="petricor-logo"/>
+                <img src="icon.png" class="logo"/>
                 <span class="yellow-text" style="font-size: 2rem;">
-                    <a href="https://github.com/yellowkirby113/Risk-of-jokes-Balatro-mod" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">Petricor V</a>
+                    <a href="https://github.com/yellowkirby113/" class="yellow-text" style="font-size: 2rem; text-decoration: underline; color: #ffffff;">???????</a>
                 </span>
             </div>
             <div class="petricor-desc">
-                A
+                ???????
             </div>
         </div>
+    </div>
+    <div class="center-row" style="top: 110%;">
+        <span class="yellow-text" style="font-size: 1.5rem;"></span>
     </div>
 	<div class="center-text" style="top: 150%;">
         doop
     </div>
     <div>
-    <div class="center-row" style="left: 15%; top: 15%;">
+    <div class="center-row" style="left: 15%; top: 15%; transform: none;">
         <div class="resizable">
             <img src="car.gif" id="car-gif-1"/>
             <div class="resizer"></div>

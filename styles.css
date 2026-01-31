@@ -30,6 +30,9 @@ body {
     align-items: center;
     gap: 1.2rem;
 }
+.center-row .draggable-car {
+    transform: none !important;
+}
 .yellow-text {
     color: rgb(255, 255, 255);
     font-size: 2rem;
@@ -130,7 +133,7 @@ span.yellowed {
     height: 120px;
     pointer-events: none;
     z-index: 100;
-    background: linear-gradient(to top, #232323 80%, rgba(35,35,35,0) 100%);
+    background: linear-gradient(to top, #232323 60%, rgba(35,35,35,0) 80%);
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -154,4 +157,17 @@ span.yellowed {
 @keyframes arrow-bounce {
     0%, 100% { transform: translateY(0);}
     50% { transform: translateY(12px);}
+}
+.draggable-car {
+    position: absolute;
+    cursor: grab;
+    z-index: 10;
+    width: 120px;
+    height: 60px;
+    min-width: 40px;
+    min-height: 40px;
+}
+.draggable-car.dragging {
+    cursor: grabbing;
+    opacity: 0.85;
 }
