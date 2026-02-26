@@ -83,6 +83,7 @@ span.yellowed {
     bottom: -8px;
     cursor: se-resize;
     z-index: 2;
+    opacity: 0;
 }
 @keyframes wobble-back {
     0% { transform: scale(1, 1); }
@@ -95,10 +96,24 @@ span.yellowed {
 .resizable.wobbling {
     animation: wobble-back 0.6s cubic-bezier(.36,-0.14,.47,1.41);
 }
+.petricor-grid-container {
+    width: 100%;
+    padding: 2rem 1rem;
+    margin-top: 25rem;
+}
+.petricor-grid-container .row {
+    margin-bottom: 2rem;
+}
+.petricor-grid-container .col-12,
+.petricor-grid-container .col-md-6,
+.petricor-grid-container .col-lg-6 {
+    padding: 1.5rem 12.5rem;
+}
 .petricor-box {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     background: #232323;
     border-radius: 18px;
     padding: 1.2rem 2rem;
@@ -106,7 +121,13 @@ span.yellowed {
     border: 2px solid #ffd600;
     gap: 0.7rem;
     margin-top: 0.5rem;
-    min-width: 500px;
+    width: 100%;
+    min-height: 300px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.petricor-box:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 20px rgba(255, 214, 0, 0.3);
 }
 .petricor-header {
     display: flex;
@@ -170,4 +191,22 @@ span.yellowed {
 .draggable-car.dragging {
     cursor: grabbing;
     opacity: 0.85;
+}
+.petricor-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    width: 100%;
+}
+.petricor-image {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+.petricor-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
 }

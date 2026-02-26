@@ -1,0 +1,85 @@
+html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(10deg, rgba(139, 0, 0, 1) 0%, rgba(43, 43, 43, 1) 70%, rgba(43, 43, 43, 1) 100%);
+    overflow-x: hidden;
+}
+.center-text {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6rem;
+    color: #ffffff;
+}
+.center-row {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+.center-row .draggable-car {
+    transform: none !important;
+}
+.yellow-text {
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    font-family: inherit;
+}
+
+.card-hand {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: -30px;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.card {
+    cursor: grab;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    position: relative;
+    margin: 0 -15px;
+}
+
+.card-image {
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    user-select: none;
+}
+
+.card:hover {
+    transform: translateY(-30px) scale(1.1);
+    filter: brightness(1.1);
+    z-index: 10;
+}
+
+.card:hover .card-image {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.card.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+    transform: rotate(5deg);
+}
