@@ -25,6 +25,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      - name: List directory contents
+        run: |
+          echo "Repository root contents:"
+          ls -la ./
+          echo ""
+          echo "Petricor-V contents:"
+          ls -la Petricor-V/ || echo "Petricor-V directory not found"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
