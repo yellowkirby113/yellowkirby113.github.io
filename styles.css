@@ -96,18 +96,18 @@ span.yellowed {
 .resizable.wobbling {
     animation: wobble-back 0.6s cubic-bezier(.36,-0.14,.47,1.41);
 }
-.petricor-grid-container {
+.project-grid {
     width: 100%;
-    padding: 2rem 1rem;
-    margin-top: 25rem;
+    padding: 2rem 5rem;
+    margin-top: 30rem;
 }
-.petricor-grid-container .row {
-    margin-bottom: 2rem;
+.project-grid .row {
+    margin-bottom: 0rem;
 }
-.petricor-grid-container .col-12,
-.petricor-grid-container .col-md-6,
-.petricor-grid-container .col-lg-6 {
-    padding: 1.5rem 12.5rem;
+.project-grid .col-12,
+.project-grid .col-md-6,
+.project-grid .col-lg-6 { 
+    padding: 3rem;
 }
 .petricor-box {
     display: flex;
@@ -116,13 +116,13 @@ span.yellowed {
     justify-content: space-around;
     background: #232323;
     border-radius: 18px;
-    padding: 1.2rem 2rem;
+    padding: 1rem 2rem;
     box-shadow: 0 2px 12px rgba(0,0,0,0.18);
     border: 2px solid #ffd600;
-    gap: 0.7rem;
+    gap: 2rem;
     margin-top: 0.5rem;
     width: 100%;
-    min-height: 300px;
+    min-height: 200px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .petricor-box:hover {
