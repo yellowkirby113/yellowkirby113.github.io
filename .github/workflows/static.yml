@@ -1,31 +1,28 @@
 name: Deploy static content to Pages
 
 on:
-  push:
-    branches: ["main"]
-  workflow_dispatch:
-
+  build:
 permissions:
   contents: read
   pages: write
-  id-token: write
+        uses: actions/checkout@v4
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+        uses: actions/configure-pages@v5
+      url: ${{ steps.deployment.outputs.page_url }}
+        uses: actions/upload-pages-artifact@v3
+    steps:
+      - name: Checkout
 
-jobs:
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v3
-      - name: List directory contents
+        uses: actions/deploy-pages@v4
         run: |
           echo "Repository root contents:"
           ls -la ./
